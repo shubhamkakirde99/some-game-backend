@@ -28,18 +28,18 @@ public class TestController {
         return ResponseEntity.ok(countriesList.stream().map(CountryModel::getName).collect(Collectors.joining(", ")));
     }
 
-//    @GetMapping("/speedTest")
-//    public ResponseEntity<String> checkSpeed () {
-//        long startTime = System.nanoTime();
-//
-//        String baseString = "Some String";
-//        List<String> stringList = new ArrayList<>();
-//        for (int i=0; i< 10000; i++) {
-//            String newString = baseString;
-//            stringList.add(newString);
-//        }
-//        long duration = (System.nanoTime() - startTime);
-//        stringList.add("took " + duration + " nanoseconds");
-//        return ResponseEntity.ok(stringList.stream().collect(Collectors.joining(", ")));
-//    }
+    @GetMapping("/speedTest")
+    public ResponseEntity<String> checkSpeed () {
+        long startTime = System.nanoTime();
+
+        String baseString = "Some String";
+        List<String> stringList = new ArrayList<>();
+        for (int i=0; i< 10000; i++) {
+            String newString = baseString;
+            stringList.add(newString);
+        }
+        long duration = (System.nanoTime() - startTime);
+        stringList.add("took " + duration + " nanoseconds");
+        return ResponseEntity.ok(stringList.stream().collect(Collectors.joining(", ")));
+    }
 }
