@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -24,7 +25,17 @@ public class TestController {
     @GetMapping("/getData")
     public ResponseEntity<String> getAllCountries () {
         List<CountryModel> countriesList = countryRepository.findAll();
-//        countriesList.forEach(i -> System.out.println(i.getName()));
         return ResponseEntity.ok(countriesList.stream().map(CountryModel::getName).collect(Collectors.joining(", ")));
+    }
+
+    @GetMapping("/speedTest")
+    public ResponseEntity<String> checkSpeed () {
+        String baseString = "Some String";
+        List<String> stringList = new ArrayList<>();
+        for (int i=0; i< 10000; i++) {
+            String newString = baseString;
+            stringList.add(newString);
+        }
+        return ResponseEntity.ok(stringList.stream().collect(Collectors.joining(", ")));
     }
 }
