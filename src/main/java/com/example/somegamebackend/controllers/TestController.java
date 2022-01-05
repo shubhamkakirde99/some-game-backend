@@ -1,31 +1,28 @@
 package com.example.somegamebackend.controllers;
 
-import com.example.somegamebackend.models.CountryModel;
-import com.example.somegamebackend.repositories.CountryRepository;
+import com.example.somegamebackend.dtos.CreateUserDto;
+import com.example.somegamebackend.dtos.PostDto;
+import com.example.somegamebackend.dtos.UserDto;
+import com.example.somegamebackend.models.UserModel;
+import com.example.somegamebackend.services.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@RequestMapping("/api")
 public class TestController {
 
     @Autowired
-    CountryRepository countryRepository;
+    GameService gameService;
 
     @GetMapping("/")
     public ResponseEntity<String> testWorking () {
         return ResponseEntity.ok("This endpoint is working ig");
-    }
-
-    @GetMapping("/getData")
-    public ResponseEntity<String> getAllCountries () {
-        List<CountryModel> countriesList = countryRepository.findAll();
-        return ResponseEntity.ok(countriesList.stream().map(CountryModel::getName).collect(Collectors.joining(", ")));
     }
 
     @GetMapping("/speedTest")
@@ -41,5 +38,17 @@ public class TestController {
         long duration = (System.nanoTime() - startTime);
         stringList.add("took " + duration + " nanoseconds");
         return ResponseEntity.ok(stringList.stream().collect(Collectors.joining(", ")));
+    }
+
+    @GetMapping("/get-all-users")
+    public ResponseEntity<List<UserModel>> getAllUsers() {
+        return ResponseEntity.ok(gameService.getAllUsers());
+    }
+
+    @PostMapping("/create-user")
+    public ResponseEntity<UserDto> createUser(@RequestBody CreateUserDto userData) {
+        System.out.println("User will be created for " + userData.getUserName());
+        gameService.createUser(userData);
+        return ResponseEntity.ok(new UserDto("asf", userData.getUserName()));
     }
 }
