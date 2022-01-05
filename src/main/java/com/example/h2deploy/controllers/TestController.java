@@ -19,7 +19,7 @@ public class TestController {
 
     @GetMapping("/")
     public ResponseEntity<String> testWorking () {
-        return ResponseEntity.ok("This endpoint is working");
+        return ResponseEntity.ok("This endpoint is working ig");
     }
 
     @GetMapping("/getData")
