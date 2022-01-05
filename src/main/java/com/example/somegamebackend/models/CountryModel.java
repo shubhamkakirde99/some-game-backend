@@ -1,4 +1,4 @@
-package com.example.h2deploy.models;
+package com.example.somegamebackend.models;
 
 import lombok.Data;
 

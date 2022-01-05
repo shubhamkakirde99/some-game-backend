@@ -1,6 +1,6 @@
-package com.example.h2deploy.repositories;
+package com.example.somegamebackend.repositories;
 
-import com.example.h2deploy.models.CountryModel;
+import com.example.somegamebackend.models.CountryModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

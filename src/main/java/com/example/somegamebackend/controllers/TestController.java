@@ -1,7 +1,7 @@
-package com.example.h2deploy.controllers;
+package com.example.somegamebackend.controllers;
 
-import com.example.h2deploy.models.CountryModel;
-import com.example.h2deploy.repositories.CountryRepository;
+import com.example.somegamebackend.models.CountryModel;
+import com.example.somegamebackend.repositories.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

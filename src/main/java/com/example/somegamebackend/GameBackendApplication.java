@@ -1,13 +1,13 @@
-package com.example.h2deploy;
+package com.example.somegamebackend;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class H2deployApplication {
+public class GameBackendApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(H2deployApplication.class, args);
+		SpringApplication.run(GameBackendApplication.class, args);
 	}
 
 }

@@ -1,10 +1,10 @@
-package com.example.h2deploy;
+package com.example.somegamebackend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class H2deployApplicationTests {
+class GameBackendApplicationTests {
 
 	@Test
 	void contextLoads() {
